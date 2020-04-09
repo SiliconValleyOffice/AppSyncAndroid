@@ -1,27 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="10dp">
 
     <TextView
+        android:id="@+id/txt_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:paddingLeft="10dp"
-        android:textSize="15dp"
+        android:layout_alignParentStart="true"
+        android:textSize="15sp"
         android:textStyle="bold"
-        android:id="@+id/txt_name"
-        />
+        tools:ignore="RtlSymmetry" />
+
     <TextView
+        android:id="@+id/textViewOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:paddingRight="20sp"
+        android:text="&#8942;"
+        android:textAppearance="?android:textAppearanceLarge"
+        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/txt_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:paddingLeft="30dp"
-        android:textSize="15dp"
-        android:id="@+id/txt_description"
-        />
+        android:layout_below="@id/txt_name"
+        android:textSize="15sp"
+        tools:ignore="RtlSymmetry" />
 
-</LinearLayout>
+</RelativeLayout>

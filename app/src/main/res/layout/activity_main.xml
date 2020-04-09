@@ -12,7 +12,8 @@
         android:layout_marginTop="10dp"
         android:layout_gravity="center_horizontal"
         android:text="List of Pets"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        tools:ignore="HardcodedText" />
 
     <include layout="@layout/content_main" />
 
@@ -23,6 +24,7 @@
         android:layout_gravity="bottom|right|end"
         android:layout_margin="16dp"
         android:tint="@android:color/white"
-        app:srcCompat="@android:drawable/ic_input_add"/>
+        app:srcCompat="@android:drawable/ic_input_add"
+        tools:ignore="RtlHardcoded" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
