@@ -6,18 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appsyncandroid.graphql.MyListPetsQuery
-import kotlinx.android.synthetic.main.recyclerview_row.view.*
+import kotlinx.android.synthetic.main.pet_list_row.view.*
 
 
-class MyAdapter internal constructor(context: Context?) :
-    RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+class PetListAdapter internal constructor(context: Context?) :
+    RecyclerView.Adapter<PetListAdapter.ViewHolder>() {
     private var mData: List<MyListPetsQuery.Item> = ArrayList()
     private val mInflater: LayoutInflater
 
     // inflates the row layout from xml when needed
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view: View = mInflater.inflate(
-            R.layout.recyclerview_row,
+            R.layout.pet_list_row,
             parent,
             false
         )

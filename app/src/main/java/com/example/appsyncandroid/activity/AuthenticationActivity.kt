@@ -1,10 +1,11 @@
-package com.example.appsyncandroid
+package com.example.appsyncandroid.activity
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.amazonaws.mobile.client.*
+import com.example.appsyncandroid.R
 
 class AuthenticationActivity : AppCompatActivity() {
     private val TAG =

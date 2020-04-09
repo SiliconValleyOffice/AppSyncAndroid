@@ -1,4 +1,4 @@
-package com.example.appsyncandroid
+package com.example.appsyncandroid.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,10 +7,14 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.appsyncandroid.graphql.MyListPetsQuery
 import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers
 import com.apollographql.apollo.GraphQLCall
 import com.apollographql.apollo.exception.ApolloException
+import com.example.appsyncandroid.PetListAdapter
+import com.example.appsyncandroid.R
+import com.example.appsyncandroid.appSyncClient
+import com.example.appsyncandroid.appSyncClientInit
+import com.example.appsyncandroid.graphql.MyListPetsQuery
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import javax.annotation.Nonnull
@@ -18,7 +22,7 @@ import javax.annotation.Nonnull
 class MainActivity : AppCompatActivity() {
 
     lateinit var mRecyclerView: RecyclerView
-    lateinit var mAdapter: MyAdapter
+    lateinit var mAdapter: PetListAdapter
 
     private var mPets: ArrayList<MyListPetsQuery.Item>? = null
     private val TAG = MainActivity::class.java.simpleName
@@ -32,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         mRecyclerView.setLayoutManager(LinearLayoutManager(this));
 
         // specify an adapter (see also next example)
-        mAdapter = MyAdapter(this);
+        mAdapter = PetListAdapter(this);
         mRecyclerView.setAdapter(mAdapter);
 
         appSyncClientInit(this)
@@ -54,7 +58,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun query() {
-        appSyncClient()?.query(MyListPetsQuery.builder().build())
+        appSyncClient()
+            ?.query(MyListPetsQuery.builder().build())
             ?.responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
             ?.enqueue(queryCallback)
     }
