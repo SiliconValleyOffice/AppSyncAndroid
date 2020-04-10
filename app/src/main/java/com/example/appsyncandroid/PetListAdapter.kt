@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.PopupMenu
+import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appsyncandroid.graphql.MyListPetsQuery
 import kotlinx.android.synthetic.main.pet_list_row.view.*
@@ -32,13 +32,18 @@ class PetListAdapter internal constructor(context: Context?) :
             val popup = PopupMenu(it.context, holder.itemView.btn_pet_options)
             popup.inflate(R.menu.menu_pet)
 
-            popup.setOnMenuItemClickListener(object : PopupMenu.OnMenuItemClickListener {
-                override fun onMenuItemClick(item: MenuItem): Boolean {
-                    return when (item.getItemId()) {
-                        else -> false
+            popup.setOnMenuItemClickListener { menuItem: MenuItem ->
+                val itemID = menuItem
+                when (menuItem.itemId) {
+                    R.id.pet_update -> {
+
+                    }
+                    R.id.pet_delete -> {
+
                     }
                 }
-            })
+                true
+            }
             popup.show()
         })
     }
