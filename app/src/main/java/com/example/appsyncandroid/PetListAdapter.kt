@@ -10,11 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.appsyncandroid.graphql.MyListPetsQuery
 import kotlinx.android.synthetic.main.pet_list_row.view.*
 
-
 class PetListAdapter internal constructor(context: Context?) :
     RecyclerView.Adapter<PetListAdapter.PetViewHolder>() {
     private var mData: List<MyListPetsQuery.Item> = ArrayList()
     private val mInflater: LayoutInflater
+
+    init {
+        mInflater = LayoutInflater.from(context)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetViewHolder {
         val view: View = mInflater.inflate(
@@ -62,9 +65,5 @@ class PetListAdapter internal constructor(context: Context?) :
             itemView.txt_name.text = item.name()
             itemView.txt_description.text = item.description()
         }
-    }
-
-    init {
-        mInflater = LayoutInflater.from(context)
     }
 }
