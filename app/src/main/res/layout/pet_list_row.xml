@@ -18,15 +18,15 @@
         tools:ignore="RtlSymmetry" />
 
     <TextView
-        android:id="@+id/textViewOptions"
+        android:id="@+id/btn_pet_options"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:paddingRight="20sp"
-        android:text="&#8942;"
+        android:text="@string/vertical_elipse"
         android:textAppearance="?android:textAppearanceLarge"
-        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+        tools:ignore="RelativeOverlap,RtlHardcoded,RtlSymmetry" />
 
     <TextView
         android:id="@+id/txt_description"

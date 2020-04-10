@@ -11,9 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_gravity="center_horizontal"
-        android:text="List of Pets"
-        android:textSize="20sp"
-        tools:ignore="HardcodedText" />
+        android:text="@string/list_of_pets"
+        android:textSize="20sp" />
 
     <include layout="@layout/content_main" />
 

@@ -10,23 +10,28 @@ import kotlinx.android.synthetic.main.pet_list_row.view.*
 
 
 class PetListAdapter internal constructor(context: Context?) :
-    RecyclerView.Adapter<PetListAdapter.ViewHolder>() {
+    RecyclerView.Adapter<PetListAdapter.PetViewHolder>() {
     private var mData: List<MyListPetsQuery.Item> = ArrayList()
     private val mInflater: LayoutInflater
 
     // inflates the row layout from xml when needed
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetViewHolder {
         val view: View = mInflater.inflate(
             R.layout.pet_list_row,
             parent,
             false
         )
-        return ViewHolder(view)
+        return PetViewHolder(view)
     }
 
     // binds the data to the TextView in each row
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindData(mData[position])
+    override fun onBindViewHolder(holderPet: PetViewHolder, position: Int) {
+        holderPet.bindData(mData[position])
+
+        holderPet.itemView.btn_pet_options.setOnClickListener(View.OnClickListener {
+
+        })
+
     }
 
     // total number of rows
@@ -40,7 +45,7 @@ class PetListAdapter internal constructor(context: Context?) :
     }
 
     // stores and recycles views as they are scrolled off screen
-    inner class ViewHolder(itemView: View) :
+    inner class PetViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
         fun bindData(item: MyListPetsQuery.Item) {
             itemView.txt_name.text = item.name()

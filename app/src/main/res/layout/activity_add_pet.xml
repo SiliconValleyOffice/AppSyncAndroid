@@ -12,17 +12,15 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_gravity="center_horizontal"
-        android:text="Add a Pet"
-        android:textSize="20sp"
-        tools:ignore="HardcodedText" />
+        android:text="@string/add_a_pet"
+        android:textSize="20sp" />
 
     <TextView
         android:labelFor="@id/editTxt_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"
-        android:textSize="15sp"
-        tools:ignore="HardcodedText" />
+        android:text="@string/name"
+        android:textSize="15sp" />
     <EditText
         android:id="@+id/editTxt_name"
         android:layout_width="match_parent"
@@ -33,9 +31,8 @@
         android:id="@+id/label_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Description"
-        android:textSize="15sp"
-        tools:ignore="HardcodedText" />
+        android:text="@string/description"
+        android:textSize="15sp" />
     <EditText
         android:id="@+id/editText_description"
         android:layout_width="match_parent"
@@ -46,7 +43,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="Save"
-        tools:ignore="HardcodedText" />
+        android:text="@string/save" />
 
 </LinearLayout>

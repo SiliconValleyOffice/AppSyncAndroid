@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.appsyncandroid.activity.MainActivity">
+    <item
+        android:id="@+id/pet_update"
+        android:orderInCategory="100"
+        android:title="@string/update"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/pet_delete"
+        android:orderInCategory="100"
+        android:title="@string/delete"
+        app:showAsAction="never" />
+</menu>
