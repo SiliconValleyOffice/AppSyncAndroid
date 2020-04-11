@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appsyncandroid.activity.PetDeleteActivity
+import com.example.appsyncandroid.activity.PetUpdateActivity
 import com.example.appsyncandroid.graphql.MyListPetsQuery
 import kotlinx.android.synthetic.main.pet_list_row.view.*
 
@@ -41,7 +42,9 @@ class PetListAdapter internal constructor(context: Context?) :
                 val itemID = menuItem
                 when (menuItem.itemId) {
                     R.id.pet_update -> {
-
+                        val intent = Intent(holder.itemView.context, PetUpdateActivity::class.java)
+                        holder.itemView.context.startActivity(intent)
+                        true
                     }
                     R.id.pet_delete -> {
                         val intent = Intent(holder.itemView.context, PetDeleteActivity::class.java)

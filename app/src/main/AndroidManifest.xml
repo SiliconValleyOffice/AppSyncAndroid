@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.PetDeleteActivity"></activity>
+        <activity android:name=".activity.PetUpdateActivity"></activity>
+        <activity android:name=".activity.PetDeleteActivity" />
         <activity android:name=".activity.PetAddActivity" />
         <activity android:name=".activity.AuthenticationActivity">
             <intent-filter>

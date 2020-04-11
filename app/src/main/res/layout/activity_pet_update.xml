@@ -11,7 +11,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_gravity="center_horizontal"
-        android:text="@string/delete_a_pet"
+        android:text="@string/update_a_pet"
         android:textSize="20sp" />
 
 </LinearLayout>

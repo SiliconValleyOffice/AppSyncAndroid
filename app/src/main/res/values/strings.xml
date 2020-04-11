@@ -10,4 +10,5 @@
     <string name="list_of_pets">List of Pets</string>
     <string name="vertical_elipse">⋮</string>
     <string name="delete_a_pet">Delete a Pet</string>
+    <string name="update_a_pet">Update a Pet</string>
 </resources>
