@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         btn_addPet.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
-                val addPetIntent = Intent(this@MainActivity, AddPetActivity::class.java)
+                val addPetIntent = Intent(this@MainActivity, PetAddActivity::class.java)
                 this@MainActivity.startActivity(addPetIntent)
             }
         })

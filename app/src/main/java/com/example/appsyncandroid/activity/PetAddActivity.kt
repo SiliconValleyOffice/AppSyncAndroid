@@ -15,9 +15,9 @@ import type.CreatePetInput
 import javax.annotation.Nonnull
 
 
-class AddPetActivity : AppCompatActivity() {
+class PetAddActivity : AppCompatActivity() {
 
-    private val TAG = AddPetActivity::class.java.simpleName
+    private val TAG = PetAddActivity::class.java.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +52,7 @@ class AddPetActivity : AppCompatActivity() {
             override fun onFailure(@Nonnull e: ApolloException) {
                 runOnUiThread {
                     Log.e("", "Failed to perform AddPetMutation", e)
-                    Toast.makeText(this@AddPetActivity, "Failed to add pet", Toast.LENGTH_SHORT)
+                    Toast.makeText(this@PetAddActivity, "Failed to add pet", Toast.LENGTH_SHORT)
                         .show()
                     finish()
                 }
@@ -60,7 +60,7 @@ class AddPetActivity : AppCompatActivity() {
 
             override fun onResponse(response: com.apollographql.apollo.api.Response<MyCreatePetMutation.Data?>) {
                 runOnUiThread {
-                    Toast.makeText(this@AddPetActivity, "Added pet", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@PetAddActivity, "Added pet", Toast.LENGTH_SHORT).show()
                     finish()
                 }
             }

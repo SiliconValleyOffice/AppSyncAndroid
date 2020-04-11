@@ -1,12 +1,14 @@
 package com.example.appsyncandroid
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
+import com.example.appsyncandroid.activity.PetDeleteActivity
 import com.example.appsyncandroid.graphql.MyListPetsQuery
 import kotlinx.android.synthetic.main.pet_list_row.view.*
 
@@ -42,7 +44,9 @@ class PetListAdapter internal constructor(context: Context?) :
 
                     }
                     R.id.pet_delete -> {
-
+                        val intent = Intent(holder.itemView.context, PetDeleteActivity::class.java)
+                        holder.itemView.context.startActivity(intent)
+                        true
                     }
                 }
                 true
