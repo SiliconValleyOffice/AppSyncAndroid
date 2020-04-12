@@ -32,10 +32,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         mRecyclerView = recycler_view
-        // use a linear layout manager
         mRecyclerView.setLayoutManager(LinearLayoutManager(this));
 
-        // specify an adapter (see also next example)
         mAdapter = PetListAdapter(this);
         mRecyclerView.setAdapter(mAdapter);
 
@@ -53,7 +51,6 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        // Query list data when we return to the screen
         query()
     }
 

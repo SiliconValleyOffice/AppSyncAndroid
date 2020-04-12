@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -13,5 +14,33 @@
         android:layout_gravity="center_horizontal"
         android:text="@string/delete_a_pet"
         android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/txt_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="15sp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/txt_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="30sp"
+        android:textSize="15sp"
+        tools:ignore="RtlSymmetry" />
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/delete"
+        />
 
 </LinearLayout>

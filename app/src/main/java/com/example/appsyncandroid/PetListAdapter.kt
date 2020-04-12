@@ -13,6 +13,8 @@ import com.example.appsyncandroid.activity.PetUpdateActivity
 import com.example.appsyncandroid.graphql.MyListPetsQuery
 import kotlinx.android.synthetic.main.pet_list_row.view.*
 
+val EXTRA_PET = "EXTRA_PET"
+
 class PetListAdapter internal constructor(context: Context?) :
     RecyclerView.Adapter<PetListAdapter.PetViewHolder>() {
     private var mData: List<MyListPetsQuery.Item> = ArrayList()
@@ -43,11 +45,13 @@ class PetListAdapter internal constructor(context: Context?) :
                 when (menuItem.itemId) {
                     R.id.pet_update -> {
                         val intent = Intent(holder.itemView.context, PetUpdateActivity::class.java)
+                        intent.putExtra(EXTRA_PET, mData[position])
                         holder.itemView.context.startActivity(intent)
                         true
                     }
                     R.id.pet_delete -> {
                         val intent = Intent(holder.itemView.context, PetDeleteActivity::class.java)
+                        intent.putExtra(EXTRA_PET, mData[position])
                         holder.itemView.context.startActivity(intent)
                         true
                     }

@@ -13,6 +13,7 @@ import com.apollographql.apollo.api.ResponseWriter;
 import com.apollographql.apollo.api.internal.UnmodifiableMapBuilder;
 import com.apollographql.apollo.api.internal.Utils;
 import java.io.IOException;
+import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
@@ -383,7 +384,8 @@ public final class MyListPetsQuery implements Query<MyListPetsQuery.Data, MyList
     }
   }
 
-  public static class Item {
+  public static class Item implements Serializable
+  {
     static final ResponseField[] $responseFields = {
       ResponseField.forString("__typename", "__typename", null, false, Collections.<ResponseField.Condition>emptyList()),
       ResponseField.forCustomType("id", "id", null, false, CustomType.ID, Collections.<ResponseField.Condition>emptyList()),
