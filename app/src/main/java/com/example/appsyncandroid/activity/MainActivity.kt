@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers
 import com.apollographql.apollo.GraphQLCall
 import com.apollographql.apollo.exception.ApolloException
@@ -21,29 +20,25 @@ import javax.annotation.Nonnull
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var mRecyclerView: RecyclerView
-    lateinit var mAdapter: PetListAdapter
+    private lateinit var mAdapter: PetListAdapter
 
-    private var mPets: ArrayList<MyListPetsQuery.Item>? = null
-    private val TAG = MainActivity::class.java.simpleName
+    private var mPets: List<MyListPetsQuery.Item>? = null
+    private val tag : String = MainActivity::class.java.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main)  // use view binding
 
-        mRecyclerView = recycler_view
-        // use a linear layout manager
-        mRecyclerView.setLayoutManager(LinearLayoutManager(this));
+        recycler_view.setLayoutManager(LinearLayoutManager(this))
 
-        // specify an adapter (see also next example)
-        mAdapter = PetListAdapter(this);
-        mRecyclerView.setAdapter(mAdapter);
+        mAdapter = PetListAdapter(this)
+        recycler_view.setAdapter(mAdapter)
 
         appSyncClientInit(this)
 
         btn_addPet.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
-                val addPetIntent = Intent(this@MainActivity, AddPetActivity::class.java)
+                val addPetIntent = Intent(this@MainActivity, PetAddActivity::class.java)
                 this@MainActivity.startActivity(addPetIntent)
             }
         })
@@ -52,8 +47,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-
-        // Query list data when we return to the screen
         query()
     }
 
@@ -68,12 +61,13 @@ class MainActivity : AppCompatActivity() {
         object : GraphQLCall.Callback<MyListPetsQuery.Data?>() {
 
             override fun onFailure(@Nonnull e: ApolloException) {
-                Log.e(TAG, e.toString())
+                Log.e(tag, e.toString())
             }
 
             override fun onResponse(response: com.apollographql.apollo.api.Response<MyListPetsQuery.Data?>) {
-                mPets = ArrayList(response.data()?.listPets()?.items())
-                Log.i(TAG, "Retrieved list items: " + mPets.toString())
+                mPets = response.data()?.listPets()?.items()
+                Log.i(tag, "Retrieved list items: " + mPets.toString())  // log on DEBUG
+                // check for null and call onFailure()
                 runOnUiThread {
                     mAdapter.setItems(mPets!!)
                     mAdapter.notifyDataSetChanged()

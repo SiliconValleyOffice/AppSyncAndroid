@@ -1,14 +1,19 @@
 package com.example.appsyncandroid
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
+import com.example.appsyncandroid.activity.PetDeleteActivity
+import com.example.appsyncandroid.activity.PetUpdateActivity
 import com.example.appsyncandroid.graphql.MyListPetsQuery
 import kotlinx.android.synthetic.main.pet_list_row.view.*
+
+val EXTRA_PET = "EXTRA_PET"
 
 class PetListAdapter internal constructor(context: Context?) :
     RecyclerView.Adapter<PetListAdapter.PetViewHolder>() {
@@ -39,10 +44,16 @@ class PetListAdapter internal constructor(context: Context?) :
                 val itemID = menuItem
                 when (menuItem.itemId) {
                     R.id.pet_update -> {
-
+                        val intent = Intent(holder.itemView.context, PetUpdateActivity::class.java)
+                        intent.putExtra(EXTRA_PET, mData[position])
+                        holder.itemView.context.startActivity(intent)
+                        true
                     }
                     R.id.pet_delete -> {
-
+                        val intent = Intent(holder.itemView.context, PetDeleteActivity::class.java)
+                        intent.putExtra(EXTRA_PET, mData[position])
+                        holder.itemView.context.startActivity(intent)
+                        true
                     }
                 }
                 true

@@ -10,18 +10,18 @@ import com.apollographql.apollo.exception.ApolloException
 import com.example.appsyncandroid.R
 import com.example.appsyncandroid.appSyncClient
 import com.example.appsyncandroid.graphql.MyCreatePetMutation
-import kotlinx.android.synthetic.main.activity_add_pet.*
+import kotlinx.android.synthetic.main.activity_pet_add.*
 import type.CreatePetInput
 import javax.annotation.Nonnull
 
 
-class AddPetActivity : AppCompatActivity() {
+class PetAddActivity : AppCompatActivity() {
 
-    private val TAG = AddPetActivity::class.java.simpleName
+    private val tag = PetAddActivity::class.java.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_pet)
+        setContentView(R.layout.activity_pet_add)
         btn_save.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
                 save()
@@ -45,14 +45,13 @@ class AddPetActivity : AppCompatActivity() {
         appSyncClient()?.mutate(addPetMutation)?.enqueue(mutateCallback)
     }
 
-    // Mutation callback code
     private val mutateCallback: GraphQLCall.Callback<MyCreatePetMutation.Data?> =
         object : GraphQLCall.Callback<MyCreatePetMutation.Data?>() {
 
             override fun onFailure(@Nonnull e: ApolloException) {
                 runOnUiThread {
-                    Log.e("", "Failed to perform AddPetMutation", e)
-                    Toast.makeText(this@AddPetActivity, "Failed to add pet", Toast.LENGTH_SHORT)
+                    Log.e(tag, "Failed to perform AddPetMutation", e)  // if DEBUG
+                    Toast.makeText(this@PetAddActivity, "Failed to add pet", Toast.LENGTH_LONG)
                         .show()
                     finish()
                 }
@@ -60,7 +59,7 @@ class AddPetActivity : AppCompatActivity() {
 
             override fun onResponse(response: com.apollographql.apollo.api.Response<MyCreatePetMutation.Data?>) {
                 runOnUiThread {
-                    Toast.makeText(this@AddPetActivity, "Added pet", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@PetAddActivity, "Added pet", Toast.LENGTH_LONG).show()
                     finish()
                 }
             }
