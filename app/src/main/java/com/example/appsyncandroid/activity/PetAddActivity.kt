@@ -17,7 +17,7 @@ import javax.annotation.Nonnull
 
 class PetAddActivity : AppCompatActivity() {
 
-    private val TAG = PetAddActivity::class.java.simpleName
+    private val tag = PetAddActivity::class.java.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +50,7 @@ class PetAddActivity : AppCompatActivity() {
 
             override fun onFailure(@Nonnull e: ApolloException) {
                 runOnUiThread {
-                    Log.e("", "Failed to perform AddPetMutation", e)
+                    Log.e(tag, "Failed to perform AddPetMutation", e)  // if DEBUG
                     Toast.makeText(this@PetAddActivity, "Failed to add pet", Toast.LENGTH_LONG)
                         .show()
                     finish()
