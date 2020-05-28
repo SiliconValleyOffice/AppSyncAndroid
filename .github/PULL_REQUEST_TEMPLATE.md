@@ -1,4 +1,4 @@
-**PR Review Checklist**
+**PR Reviewer Checklist**
 
 *Code*
 - [ ] Readability (naming matters)
@@ -7,7 +7,7 @@
 - [ ] Single Responsibility (decoupling)
 - [ ] scalability / efficiency
 
-*Some Heading ???*
+*Definition of Done*
 - [ ] Documentation
 - [ ] Security
 
