@@ -4,7 +4,7 @@
 - [ ] Readability (naming matters)
 - [ ] DRY
 - [ ] short methods
-- [ ] Single Responsibility (decoupling)
+- [ ] Single Responsibility (classes & methods)
 - [ ] scalability / efficiency
 
 *Definition of Done*
