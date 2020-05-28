@@ -2,9 +2,9 @@
 
 *Code*
 - [ ] Readability (naming matters)
-- [x] DRY
-- [x] short methods
-- [x] Single Responsibility (decoupling)
+- [ ] DRY
+- [ ] short methods
+- [ ] Single Responsibility (decoupling)
 - [ ] scalability / efficiency
 
 *Some Heading ???*
